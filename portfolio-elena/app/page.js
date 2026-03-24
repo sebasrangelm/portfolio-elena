@@ -394,7 +394,7 @@ export default function PortfolioWebsite() {
                     style={{
                       display: "grid",
                       gridTemplateColumns: "1.2fr 1fr 1fr",
-                      gridTemplateRows: "1.4fr 1fr",
+                      gridTemplateRows: "2.5fr 1fr",
                       gap: "5px",
                       height: "750px",
                     }}
