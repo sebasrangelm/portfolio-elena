@@ -54,9 +54,9 @@ const projects = [
     detailsLabel: "Formación",
     socialLinks: [],
     images: [
-      "/images/movimiento/movimiento-01.PNG",
-      "/images/movimiento/movimiento-02.PNG",
-      "/images/movimiento/movimiento-03.PNG",
+      "/images/movimiento/movimiento-01.png",
+      "/images/movimiento/movimiento-02.png",
+      "/images/movimiento/movimiento-03.png",
     ],
     video: "/videos/movimiento/movimiento-loop.mp4",
     videoVertical: true,
