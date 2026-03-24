@@ -410,7 +410,7 @@ export default function PortfolioWebsite() {
                     </div>
                     {/* img1 — top right, spans 2 columns */}
                     <div style={{ gridColumn: "2 / 4", gridRow: "1", overflow: "hidden" }}>
-                      <img src={project.images[0]} alt={project.title} className="h-full w-full object-contain object-center" />
+                      <img src={project.images[0]} alt={project.title} className="h-full w-full object-cover object-center" />
                     </div>
                     {/* img2 — bottom middle */}
                     <div style={{ gridColumn: "2", gridRow: "2", overflow: "hidden" }}>
