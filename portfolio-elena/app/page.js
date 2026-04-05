@@ -191,12 +191,12 @@ export default function PortfolioWebsite() {
 
       {/* ── HEADER ─────────────────────────────────────────────────────── */}
       <header className="sticky top-0 z-50 border-b border-stone-200/70 bg-stone-50/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 sm:py-5">
           <div>
-            <p className="text-[11px] uppercase tracking-[0.35em] text-stone-500">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-stone-500 sm:text-[11px] sm:tracking-[0.35em]">
               Portafolio Visual
             </p>
-            <h1 className="mt-1 text-sm font-medium tracking-[0.08em]">
+            <h1 className="mt-1 text-xs font-medium tracking-[0.08em] sm:text-sm">
               ANELE WHO / ELENA RIVERA
             </h1>
           </div>
@@ -213,24 +213,24 @@ export default function PortfolioWebsite() {
       {/* ── HERO ───────────────────────────────────────────────────────── */}
       <section
         id="home"
-        className="mx-auto flex min-h-[88vh] max-w-7xl items-center px-6 py-20"
+        className="mx-auto flex min-h-[80vh] max-w-7xl items-center px-4 py-16 sm:px-6 sm:py-20 md:min-h-[88vh]"
       >
         <div className="mx-auto max-w-4xl text-center">
           <Reveal>
-            <p className="text-[11px] uppercase tracking-[0.45em] text-stone-500">
+            <p className="text-[10px] uppercase tracking-[0.35em] text-stone-500 sm:text-[11px] sm:tracking-[0.45em]">
               Portafolio visual
             </p>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h2 className="mt-8 text-5xl font-semibold leading-[0.95] tracking-tight text-stone-900 md:text-7xl">
+            <h2 className="mt-6 text-4xl font-semibold leading-[0.95] tracking-tight text-stone-900 sm:mt-8 sm:text-5xl md:text-7xl">
               ANELE WHO / <br className="hidden md:block" />
               ELENA RIVERA
             </h2>
           </Reveal>
 
           <Reveal delay={0.2}>
-            <p className="mt-8 text-lg text-stone-600 md:text-xl">
+            <p className="mt-6 text-base text-stone-600 sm:mt-8 sm:text-lg md:text-xl">
               {site.tagline}
             </p>
           </Reveal>
@@ -259,7 +259,7 @@ export default function PortfolioWebsite() {
       {/* ── PROYECTOS HEADER ───────────────────────────────────────────── */}
       <section
         id="projects"
-        className="mx-auto max-w-7xl px-6 pb-10 pt-4 md:pb-16"
+        className="mx-auto max-w-7xl px-4 pb-10 pt-4 sm:px-6 md:pb-16"
       >
         <Reveal>
           <div className="mb-14">
@@ -275,13 +275,13 @@ export default function PortfolioWebsite() {
       </section>
 
       {/* ── PROYECTOS ──────────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-7xl space-y-24 px-6 pb-16 md:space-y-32 md:pb-24">
+      <section className="mx-auto max-w-7xl space-y-20 px-4 pb-16 sm:px-6 md:space-y-32 md:pb-24">
 
         {projects.map((project) => (
           <article
             id={project.id}
             key={project.id}
-            className="grid gap-10 md:grid-cols-12 md:gap-12"
+            className="grid gap-8 md:grid-cols-12 md:gap-12"
           >
             {/* ── LEFT: TEXT ──────────────────────────────────────────── */}
             <Reveal className="md:col-span-4 md:sticky md:top-28 md:self-start">
@@ -360,9 +360,9 @@ export default function PortfolioWebsite() {
               {/* WEMOVE — video is 1080x1920 (9:16 vertical), photos are ~3:2 landscape */}
               {project.id === "wemove" && (
                 <Reveal delay={0.15}>
-                  <div className="space-y-6">
-                    {/* Video horizontal crop — wemove video is vertical but Elena approved horizontal display */}
-                    <div className="aspect-[16/9] overflow-hidden rounded-[2rem] bg-stone-200">
+                  <div className="space-y-4 md:space-y-6">
+                    {/* Video — 4:5 on mobile (friendlier to vertical source), 16:9 on desktop */}
+                    <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-stone-200 sm:aspect-[16/9] md:rounded-[2rem]">
                       <video
                         autoPlay muted loop playsInline
                         className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
@@ -371,9 +371,9 @@ export default function PortfolioWebsite() {
                       </video>
                     </div>
                     {/* 2 landscape photos side by side — both ~3:2 */}
-                    <div className="grid gap-6 md:grid-cols-2">
+                    <div className="grid gap-4 sm:grid-cols-2 md:gap-6">
                       {project.images.map((image) => (
-                        <div key={image} className="aspect-[3/2] overflow-hidden rounded-[2rem] bg-stone-200">
+                        <div key={image} className="aspect-[3/2] overflow-hidden rounded-2xl bg-stone-200 md:rounded-[2rem]">
                           <img
                             src={image}
                             alt={project.title}
@@ -389,36 +389,60 @@ export default function PortfolioWebsite() {
               {/* MOVIMIENTO — mosaic: video left, photos right */}
               {project.id === "movimiento" && (
                 <Reveal delay={0.15}>
-                  <div
-                    className="overflow-hidden rounded-[2rem]"
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "1.2fr 1fr 1fr",
-                      gridTemplateRows: "1.8fr 1fr",
-                      gap: "5px",
-                      height: "750px",
-                    }}
-                  >
-                    {/* Video — left, spans both rows */}
-                    <div style={{ gridColumn: "1", gridRow: "1 / 3", overflow: "hidden" }}>
-                      <video
-                        autoPlay muted loop playsInline
-                        className="h-full w-full object-cover object-top"
-                      >
+                  {/* Mobile: editorial vertical stack — each piece full-width at natural ratio */}
+                  <div className="-mx-4 space-y-1 md:hidden">
+                    {/* Video 9:16 → constrained to 4:5 so no domina */}
+                    <div className="aspect-[4/5] overflow-hidden bg-stone-200">
+                      <video autoPlay muted loop playsInline className="h-full w-full object-cover object-center">
                         <source src={project.video} type="video/mp4" />
                       </video>
                     </div>
-                    {/* img1 — top right, spans 2 columns */}
-                    <div style={{ gridColumn: "2 / 4", gridRow: "1", overflow: "hidden" }}>
+                    {/* mov-01 — 4:5 portrait */}
+                    <div className="aspect-[4/5] overflow-hidden bg-stone-200">
                       <img src={project.images[0]} alt={project.title} className="h-full w-full object-cover object-center" />
                     </div>
-                    {/* img2 — bottom middle */}
-                    <div style={{ gridColumn: "2", gridRow: "2", overflow: "hidden" }}>
-                      <img src={project.images[1]} alt={project.title} className="h-full w-full object-cover object-top" />
+                    {/* mov-02 — ~3:2 landscape */}
+                    <div className="aspect-[3/2] overflow-hidden bg-stone-200">
+                      <img src={project.images[1]} alt={project.title} className="h-full w-full object-cover object-center" />
                     </div>
-                    {/* img3 — bottom right */}
-                    <div style={{ gridColumn: "3", gridRow: "2", overflow: "hidden" }}>
-                      <img src={project.images[2]} alt={project.title} className="h-full w-full object-cover object-top" />
+                    {/* mov-03 — 4:5 portrait */}
+                    <div className="aspect-[4/5] overflow-hidden bg-stone-200">
+                      <img src={project.images[2]} alt={project.title} className="h-full w-full object-cover object-center" />
+                    </div>
+                  </div>
+                  {/* Desktop: original mosaic */}
+                  <div className="hidden md:block">
+                    <div
+                      className="overflow-hidden rounded-[2rem]"
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "1.2fr 1fr 1fr",
+                        gridTemplateRows: "1.8fr 1fr",
+                        gap: "5px",
+                        height: "750px",
+                      }}
+                    >
+                      {/* Video — left, spans both rows */}
+                      <div style={{ gridColumn: "1", gridRow: "1 / 3", overflow: "hidden" }}>
+                        <video
+                          autoPlay muted loop playsInline
+                          className="h-full w-full object-cover object-top"
+                        >
+                          <source src={project.video} type="video/mp4" />
+                        </video>
+                      </div>
+                      {/* img1 — top right, spans 2 columns */}
+                      <div style={{ gridColumn: "2 / 4", gridRow: "1", overflow: "hidden" }}>
+                        <img src={project.images[0]} alt={project.title} className="h-full w-full object-cover object-center" />
+                      </div>
+                      {/* img2 — bottom middle */}
+                      <div style={{ gridColumn: "2", gridRow: "2", overflow: "hidden" }}>
+                        <img src={project.images[1]} alt={project.title} className="h-full w-full object-cover object-top" />
+                      </div>
+                      {/* img3 — bottom right */}
+                      <div style={{ gridColumn: "3", gridRow: "2", overflow: "hidden" }}>
+                        <img src={project.images[2]} alt={project.title} className="h-full w-full object-cover object-top" />
+                      </div>
                     </div>
                   </div>
                 </Reveal>
@@ -427,44 +451,72 @@ export default function PortfolioWebsite() {
               {/* PERFORMANCE — compact mosaic, everything visible at once */}
               {project.id === "performance" && (
                 <Reveal delay={0.15}>
-                  <div
-                    className="overflow-hidden rounded-[2rem]"
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "1.2fr 1fr 1fr",
-                      gridTemplateRows: "1fr 1.3fr 1fr",
-                      gap: "5px",
-                      height: "1100px",
-                    }}
-                  >
-                    {/* Video — left column, spans all 3 rows */}
-                    <div style={{ gridColumn: "1", gridRow: "1 / 4", overflow: "hidden" }}>
-                      <video
-                        autoPlay muted loop playsInline
-                        className="h-full w-full object-cover object-top"
-                      >
+                  {/* Mobile: editorial vertical stack — each piece full-width at natural ratio */}
+                  <div className="-mx-4 space-y-1 md:hidden">
+                    {/* Video 9:16 → constrained to 4:5 */}
+                    <div className="aspect-[4/5] overflow-hidden bg-stone-200">
+                      <video autoPlay muted loop playsInline className="h-full w-full object-cover object-center">
                         <source src={project.video} type="video/mp4" />
                       </video>
                     </div>
-                    {/* img1 — top middle */}
-                    <div style={{ gridColumn: "2", gridRow: "1", overflow: "hidden" }}>
-                      <img src={project.images[0]} alt={project.title} className="h-full w-full object-cover object-top" />
+                    {/* 4 portraits (4:5) + 1 landscape (4:3) */}
+                    <div className="aspect-[4/5] overflow-hidden bg-stone-200">
+                      <img src={project.images[0]} alt={project.title} className="h-full w-full object-cover object-center" />
                     </div>
-                    {/* img2 — top right */}
-                    <div style={{ gridColumn: "3", gridRow: "1", overflow: "hidden" }}>
-                      <img src={project.images[1]} alt={project.title} className="h-full w-full object-cover object-top" />
+                    <div className="aspect-[4/5] overflow-hidden bg-stone-200">
+                      <img src={project.images[1]} alt={project.title} className="h-full w-full object-cover object-center" />
                     </div>
-                    {/* img3 — middle, spans 2 columns (the big portrait) */}
-                    <div style={{ gridColumn: "2 / 4", gridRow: "2", overflow: "hidden" }}>
-                      <img src={project.images[2]} alt={project.title} className="h-full w-full object-cover object-top" />
+                    <div className="aspect-[4/5] overflow-hidden bg-stone-200">
+                      <img src={project.images[2]} alt={project.title} className="h-full w-full object-cover object-center" />
                     </div>
-                    {/* img4 — bottom middle */}
-                    <div style={{ gridColumn: "2", gridRow: "3", overflow: "hidden" }}>
-                      <img src={project.images[3]} alt={project.title} className="h-full w-full object-cover object-top" />
+                    <div className="aspect-[4/5] overflow-hidden bg-stone-200">
+                      <img src={project.images[3]} alt={project.title} className="h-full w-full object-cover object-center" />
                     </div>
-                    {/* img5 — bottom right */}
-                    <div style={{ gridColumn: "3", gridRow: "3", overflow: "hidden" }}>
-                      <img src={project.images[4]} alt={project.title} className="h-full w-full object-cover object-top" />
+                    <div className="aspect-[4/3] overflow-hidden bg-stone-200">
+                      <img src={project.images[4]} alt={project.title} className="h-full w-full object-cover object-center" />
+                    </div>
+                  </div>
+                  {/* Desktop: original mosaic */}
+                  <div className="hidden md:block">
+                    <div
+                      className="overflow-hidden rounded-[2rem]"
+                      style={{
+                        display: "grid",
+                        gridTemplateColumns: "1.2fr 1fr 1fr",
+                        gridTemplateRows: "1fr 1.3fr 1fr",
+                        gap: "5px",
+                        height: "1100px",
+                      }}
+                    >
+                      {/* Video — left column, spans all 3 rows */}
+                      <div style={{ gridColumn: "1", gridRow: "1 / 4", overflow: "hidden" }}>
+                        <video
+                          autoPlay muted loop playsInline
+                          className="h-full w-full object-cover object-top"
+                        >
+                          <source src={project.video} type="video/mp4" />
+                        </video>
+                      </div>
+                      {/* img1 — top middle */}
+                      <div style={{ gridColumn: "2", gridRow: "1", overflow: "hidden" }}>
+                        <img src={project.images[0]} alt={project.title} className="h-full w-full object-cover object-top" />
+                      </div>
+                      {/* img2 — top right */}
+                      <div style={{ gridColumn: "3", gridRow: "1", overflow: "hidden" }}>
+                        <img src={project.images[1]} alt={project.title} className="h-full w-full object-cover object-top" />
+                      </div>
+                      {/* img3 — middle, spans 2 columns (the big portrait) */}
+                      <div style={{ gridColumn: "2 / 4", gridRow: "2", overflow: "hidden" }}>
+                        <img src={project.images[2]} alt={project.title} className="h-full w-full object-cover object-top" />
+                      </div>
+                      {/* img4 — bottom middle */}
+                      <div style={{ gridColumn: "2", gridRow: "3", overflow: "hidden" }}>
+                        <img src={project.images[3]} alt={project.title} className="h-full w-full object-cover object-top" />
+                      </div>
+                      {/* img5 — bottom right */}
+                      <div style={{ gridColumn: "3", gridRow: "3", overflow: "hidden" }}>
+                        <img src={project.images[4]} alt={project.title} className="h-full w-full object-cover object-top" />
+                      </div>
                     </div>
                   </div>
                 </Reveal>
@@ -473,9 +525,9 @@ export default function PortfolioWebsite() {
               {/* MEJOR Q' AYER — img1 4160x1447 (ultra-wide ~3:1), img2+3 1600x900 (16:9) */}
               {project.id === "mejor-q-ayer" && (
                 <Reveal delay={0.15}>
-                  <div className="space-y-6">
-                    {/* Row 1: ultra-wide panoramic image */}
-                    <div className="aspect-[3/1] overflow-hidden rounded-[2rem] bg-stone-200">
+                  <div className="space-y-4 md:space-y-6">
+                    {/* Row 1: ultra-wide panoramic image — less extreme ratio on mobile */}
+                    <div className="aspect-[16/9] overflow-hidden rounded-2xl bg-stone-200 sm:aspect-[3/1] md:rounded-[2rem]">
                       <img
                         src={project.images[0]}
                         alt={project.title}
@@ -483,15 +535,15 @@ export default function PortfolioWebsite() {
                       />
                     </div>
                     {/* Row 2: two 16:9 images side by side */}
-                    <div className="grid gap-6 md:grid-cols-2">
-                      <div className="aspect-[16/9] overflow-hidden rounded-[2rem] bg-stone-200">
+                    <div className="grid gap-4 sm:grid-cols-2 md:gap-6">
+                      <div className="aspect-[16/9] overflow-hidden rounded-2xl bg-stone-200 md:rounded-[2rem]">
                         <img
                           src={project.images[1]}
                           alt={project.title}
                           className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
                         />
                       </div>
-                      <div className="aspect-[16/9] overflow-hidden rounded-[2rem] bg-stone-200">
+                      <div className="aspect-[16/9] overflow-hidden rounded-2xl bg-stone-200 md:rounded-[2rem]">
                         <img
                           src={project.images[2]}
                           alt={project.title}
@@ -506,9 +558,9 @@ export default function PortfolioWebsite() {
               {/* LUMINA — video left + text card right (as Elena requested) */}
               {project.id === "lumina" && (
                 <Reveal delay={0.15}>
-                  <div className="grid gap-6 md:grid-cols-[0.45fr_1fr]">
-                    {/* Video vertical */}
-                    <div className="aspect-[9/16] max-h-[600px] overflow-hidden rounded-[2rem] bg-stone-200">
+                  <div className="grid gap-4 md:grid-cols-[0.45fr_1fr] md:gap-6">
+                    {/* Video — 4:5 on mobile (centered, not too tall), 9:16 on desktop */}
+                    <div className="mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-2xl bg-stone-200 sm:max-w-sm md:mx-0 md:aspect-[9/16] md:max-h-[600px] md:max-w-none md:rounded-[2rem]">
                       <video
                         autoPlay muted loop playsInline
                         className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
@@ -518,7 +570,7 @@ export default function PortfolioWebsite() {
                     </div>
                     {/* Text card */}
                     <div className="flex items-center">
-                      <div className="rounded-[2rem] bg-white p-8 shadow-sm ring-1 ring-stone-200 md:p-10">
+                      <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-stone-200 md:rounded-[2rem] md:p-10">
                         <p className="text-[11px] uppercase tracking-[0.35em] text-stone-500">
                           Experiencia
                         </p>
@@ -549,13 +601,13 @@ export default function PortfolioWebsite() {
       {/* ── ABOUT ──────────────────────────────────────────────────────── */}
       <section
         id="about"
-        className="mx-auto max-w-7xl px-6 pb-10 pt-2 md:pb-16"
+        className="mx-auto max-w-7xl px-4 pb-10 pt-2 sm:px-6 md:pb-16"
       >
         <Reveal>
           <div className="grid gap-6 md:grid-cols-2">
 
             {/* Card 1: Elena Rivera */}
-            <div className="rounded-[2rem] bg-white p-8 shadow-sm ring-1 ring-stone-200 md:p-10">
+            <div className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-stone-200 sm:p-8 md:rounded-[2rem] md:p-10">
               <p className="text-[11px] uppercase tracking-[0.35em] text-stone-500">
                 About
               </p>
@@ -573,7 +625,7 @@ export default function PortfolioWebsite() {
             </div>
 
             {/* Card 2: Anele Who */}
-            <div className="rounded-[2rem] bg-stone-900 p-8 text-stone-50 md:p-10">
+            <div className="rounded-2xl bg-stone-900 p-6 text-stone-50 sm:p-8 md:rounded-[2rem] md:p-10">
               <p className="text-[11px] uppercase tracking-[0.35em] text-stone-400">
                 About
               </p>
@@ -595,10 +647,10 @@ export default function PortfolioWebsite() {
       {/* ── CONTACTO ───────────────────────────────────────────────────── */}
       <section
         id="contact"
-        className="mx-auto max-w-7xl px-6 pb-16 pt-4 md:pb-24"
+        className="mx-auto max-w-7xl px-4 pb-16 pt-4 sm:px-6 md:pb-24"
       >
         <Reveal>
-          <div className="rounded-[2rem] border border-stone-200 bg-white p-8 shadow-sm md:p-12">
+          <div className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm sm:p-8 md:rounded-[2rem] md:p-12">
             <div>
               <p className="text-[11px] uppercase tracking-[0.35em] text-stone-500">
                 Contacto
@@ -609,7 +661,7 @@ export default function PortfolioWebsite() {
               {/* Párrafo descriptivo ELIMINADO por corrección */}
             </div>
 
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 md:mt-10 md:grid-cols-3 md:gap-4">
               <a
                 href="https://www.instagram.com/anele.who"
                 target="_blank"
